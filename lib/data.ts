@@ -1,0 +1,332 @@
+import type { Tile, SkillGroup, EducationItem, Award } from "./types";
+
+export const BASE_PATH = "/personal-website";
+
+// ─── SVG Icons ───────────────────────────────────────────────────────────────
+
+const NEURAL_NET_SVG = `
+<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+  <!-- Input nodes -->
+  <circle cx="8" cy="12" r="3"/>
+  <circle cx="8" cy="24" r="3"/>
+  <circle cx="8" cy="36" r="3"/>
+  <!-- Hidden nodes -->
+  <circle cx="24" cy="8" r="3"/>
+  <circle cx="24" cy="20" r="3"/>
+  <circle cx="24" cy="32" r="3"/>
+  <circle cx="24" cy="44" r="3" opacity="0.5"/>
+  <!-- Output nodes -->
+  <circle cx="40" cy="18" r="3"/>
+  <circle cx="40" cy="30" r="3"/>
+  <!-- Connections input->hidden -->
+  <line x1="11" y1="12" x2="21" y2="8" opacity="0.6"/>
+  <line x1="11" y1="12" x2="21" y2="20" opacity="0.6"/>
+  <line x1="11" y1="24" x2="21" y2="20" opacity="0.6"/>
+  <line x1="11" y1="24" x2="21" y2="32" opacity="0.6"/>
+  <line x1="11" y1="36" x2="21" y2="32" opacity="0.6"/>
+  <line x1="11" y1="36" x2="21" y2="44" opacity="0.4"/>
+  <!-- Connections hidden->output -->
+  <line x1="27" y1="8" x2="37" y2="18" opacity="0.6"/>
+  <line x1="27" y1="20" x2="37" y2="18" opacity="0.6"/>
+  <line x1="27" y1="20" x2="37" y2="30" opacity="0.6"/>
+  <line x1="27" y1="32" x2="37" y2="30" opacity="0.6"/>
+</svg>`;
+
+const VR_HEADSET_SVG = `
+<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+  <!-- Headset body -->
+  <rect x="4" y="14" width="40" height="22" rx="6"/>
+  <!-- Left lens -->
+  <ellipse cx="15" cy="25" rx="7" ry="6"/>
+  <!-- Right lens -->
+  <ellipse cx="33" cy="25" rx="7" ry="6"/>
+  <!-- Lens divider -->
+  <line x1="22" y1="25" x2="26" y2="25"/>
+  <!-- Strap left -->
+  <path d="M4 20 Q2 20 2 25 Q2 30 4 30" stroke-width="1.5"/>
+  <!-- Strap right -->
+  <path d="M44 20 Q46 20 46 25 Q46 30 44 30" stroke-width="1.5"/>
+  <!-- Shine on left lens -->
+  <path d="M11 20 Q13 19 15 20" opacity="0.5"/>
+  <!-- Shine on right lens -->
+  <path d="M29 20 Q31 19 33 20" opacity="0.5"/>
+</svg>`;
+
+const GAME_CONTROLLER_SVG = `
+<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+  <!-- Controller body -->
+  <path d="M8 20 Q6 16 10 14 L16 13 Q18 8 24 8 Q30 8 32 13 L38 14 Q42 16 40 20 L37 34 Q36 38 32 38 L28 38 Q26 36 24 36 Q22 36 20 38 L16 38 Q12 38 11 34 Z"/>
+  <!-- D-pad vertical -->
+  <rect x="13" y="20" width="4" height="10" rx="1"/>
+  <!-- D-pad horizontal -->
+  <rect x="11" y="22" width="8" height="4" rx="1" opacity="0.5"/>
+  <!-- Right buttons -->
+  <circle cx="33" cy="21" r="2.5"/>
+  <circle cx="36" cy="25" r="2.5" opacity="0.7"/>
+  <circle cx="30" cy="25" r="2.5" opacity="0.7"/>
+  <circle cx="33" cy="29" r="2.5" opacity="0.5"/>
+  <!-- Center buttons -->
+  <circle cx="20" cy="17" r="1.5" opacity="0.6"/>
+  <circle cx="28" cy="17" r="1.5" opacity="0.6"/>
+</svg>`;
+
+const BLOCKCHAIN_SVG = `
+<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+  <!-- Central hexagon -->
+  <polygon points="24,6 36,13 36,27 24,34 12,27 12,13"/>
+  <!-- Inner diamond -->
+  <polygon points="24,13 30,20 24,27 18,20" opacity="0.7"/>
+  <!-- Chain links -->
+  <path d="M36 20 Q42 20 42 24 Q42 28 38 28 L36 27" opacity="0.6"/>
+  <path d="M12 20 Q6 20 6 24 Q6 28 10 28 L12 27" opacity="0.6"/>
+  <!-- NFT label dots -->
+  <circle cx="24" cy="20" r="1.5"/>
+  <circle cx="36" cy="38" r="3" opacity="0.4"/>
+  <circle cx="12" cy="38" r="3" opacity="0.4"/>
+  <line x1="36" y1="27" x2="36" y2="35" opacity="0.4"/>
+  <line x1="12" y1="27" x2="12" y2="35" opacity="0.4"/>
+</svg>`;
+
+const DRONE_SVG = `
+<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+  <!-- Body cross -->
+  <rect x="20" y="18" width="8" height="12" rx="2"/>
+  <rect x="12" y="20" width="24" height="8" rx="2"/>
+  <!-- Rotor arms -->
+  <line x1="12" y1="20" x2="8" y2="16"/>
+  <line x1="36" y1="20" x2="40" y2="16"/>
+  <line x1="12" y1="28" x2="8" y2="32"/>
+  <line x1="36" y1="28" x2="40" y2="32"/>
+  <!-- Rotors -->
+  <ellipse cx="7" cy="14" rx="5" ry="2" opacity="0.7"/>
+  <ellipse cx="41" cy="14" rx="5" ry="2" opacity="0.7"/>
+  <ellipse cx="7" cy="34" rx="5" ry="2" opacity="0.7"/>
+  <ellipse cx="41" cy="34" rx="5" ry="2" opacity="0.7"/>
+  <!-- Camera dome -->
+  <circle cx="24" cy="24" r="3"/>
+  <circle cx="24" cy="24" r="1.5" opacity="0.5"/>
+  <!-- Signal lines -->
+  <path d="M24 18 L24 10" opacity="0.4"/>
+  <path d="M20 12 Q24 8 28 12" opacity="0.4"/>
+</svg>`;
+
+// ─── Experiences ─────────────────────────────────────────────────────────────
+
+export const EXPERIENCES: Tile[] = [
+  {
+    id: "echostar-2025",
+    type: "experience",
+    title: "Software Engineering Intern",
+    organization: "EchoStar | Dish Network LLC",
+    location: "Denver, Colorado",
+    dateRange: "June 2025 – August 2025",
+    theme: {
+      gradientFrom: "#1a1a4e",
+      gradientTo: "#0d3b6e",
+      accentColor: "#3b82f6",
+      svgIcon: NEURAL_NET_SVG,
+    },
+    bullets: [
+      "Winner of the prestigious 'Curiosity' CPAW Award for demonstrating exceptional curiosity and initiative throughout the internship.",
+      "Pioneered 'JARVIS', an Agentic AI based Retrieval Augmented Generation (RAG) system built on AWS, achieving a stellar 95% quality index score — enabling the DISH IT Video Services Team to query vast technical documentation and receive instant, accurate answers based on explicit and implicit knowledge of system architectures, service dependencies, and workflows.",
+      "Enhanced functionalities by designing novel, role-aware and adaptive Developer and Executive 'Core' and 'Nexus' personas to support diverse user needs across technical and leadership teams.",
+      "Increased team operational efficiency by up to 75% in targeted workflows by reducing SME dependency and enabling rapid issue resolution, allowing engineers to shift focus from time-consuming information retrieval to high-value innovation.",
+    ],
+    tags: ["Agentic AI", "AWS", "RAG", "LLM", "Python", "MLOps"],
+  },
+  {
+    id: "huelearn-sda-2023",
+    type: "experience",
+    title: "Software Development Associate",
+    organization: "Hue Learn",
+    location: "Bengaluru, India",
+    dateRange: "June 2023 – November 2023",
+    theme: {
+      gradientFrom: "#0d2b45",
+      gradientTo: "#1a4a3a",
+      accentColor: "#06b6d4",
+      svgIcon: VR_HEADSET_SVG,
+    },
+    bullets: [
+      "Led a team of 7 developing a VR educational platform, increasing user engagement by 70% over six months.",
+      "Pioneered the multiplayer strategy for the platform using dedicated server technology and introduced 'crowd controlling' — endowing one or more players the ability to control and manipulate the actions of multiple characters within the game — doubling the user base.",
+      "Automated the generation of course content in the metaverse through HTTP and REST API request handling and JSON decoding, to fetch relevant content from the database and realize them in the metaverse as interactive 3D screens, 3D models, and game worlds, with UI overlay from React.js.",
+    ],
+    tags: ["Unreal Engine", "Multiplayer", "REST API", "React.js", "VR", "Metaverse"],
+  },
+  {
+    id: "huelearn-sdi-2023",
+    type: "experience",
+    title: "Software Development Intern",
+    organization: "Hue Learn",
+    location: "Bengaluru, India",
+    dateRange: "April 2023 – May 2023",
+    theme: {
+      gradientFrom: "#1a2a4a",
+      gradientTo: "#2a1a4a",
+      accentColor: "#8b5cf6",
+      svgIcon: GAME_CONTROLLER_SVG,
+    },
+    bullets: [
+      "Led a team of 3 in conceptualizing and fabricating character models to be more relatable — helping players connect with characters and evoke strong emotions.",
+      "Designed and constructed immersive game worlds featuring higher geometric realism in the metaverse using Nanite technology, for the virtual reality educational platform — leading to a 40% uptick in user experience.",
+    ],
+    tags: ["Unreal Engine", "Nanite", "3D Design", "VR", "Character Design", "Game Dev"],
+  },
+  {
+    id: "curl-2022",
+    type: "experience",
+    title: "Software Engineering Intern",
+    organization: "Curl",
+    location: "Bengaluru, India",
+    dateRange: "October 2021 – February 2022",
+    theme: {
+      gradientFrom: "#2a1a0a",
+      gradientTo: "#1a0a2a",
+      accentColor: "#f59e0b",
+      svgIcon: BLOCKCHAIN_SVG,
+    },
+    bullets: [
+      "Runner up at the (International) Sovereign Nature Winter Hackathon Challenge 2022, Sovereign Nature Initiative (SNI) x De Ceuvel Hackathon — won a cash prize and tokens.",
+      "Instrumental in developing Sattva, a framework to enable an ecosystem to be self-sovereign — built using Python Django along with an advanced Style GAN Model and an Object Detection Algorithm to convert images created or owned by the park into unique and attractive artworks automatically.",
+      "Minted artworks as NFTs and sold on marketplaces to generate revenue for the self-sustenance of the park.",
+    ],
+    tags: ["Python Django", "StyleGAN", "NFT", "Web3", "Object Detection", "AI Art"],
+  },
+];
+
+// ─── Projects ─────────────────────────────────────────────────────────────────
+
+export const PROJECTS: Tile[] = [
+  {
+    id: "garuda-2022",
+    type: "project",
+    title: "GARUDA: End-to-End Drone Detection & Management System",
+    organization: "Ramaiah Institute of Technology",
+    location: "Bengaluru, India",
+    dateRange: "October 2021 – June 2022",
+    theme: {
+      gradientFrom: "#0a1a2a",
+      gradientTo: "#1a2a3a",
+      accentColor: "#64748b",
+      svgIcon: DRONE_SVG,
+    },
+    bullets: [
+      "Winner at the (National) Smart India Hackathon 2022, Ministry of Education, Govt. of India — won a cash prize of $1,200.",
+      'Published a peer-reviewed paper entitled "GARUDA: Third Eye for Detecting and Tracking Drones" at the 2023 IEEE 2nd International Conference on Data, Decision and Systems (ICDDS).',
+      'Published a peer-reviewed paper entitled "A Deep Learning Approach to Classify Drones and Birds" at the 2022 IEEE 2nd Mysuru Sub Section International Conference.',
+      "Employed a robust computer vision model capable of identifying small drones from long distances and low-resolution CCTV footage with an impressive precision of 90.1% and a recall of 92.9%.",
+      "Designed to track the status of drones — inferring if a drone is approaching, receding, or moving laterally — draw bounding boxes around detected drones, update their status in a cloud database, and trigger real-time alerts to personnel via mobile devices, intended for deployment in defense establishments such as DRDO.",
+    ],
+    tags: ["YOLOv5", "Computer Vision", "PyTorch", "OpenCV", "Python", "Cloud DB"],
+  },
+];
+
+// ─── Skills ──────────────────────────────────────────────────────────────────
+
+export const SKILLS: SkillGroup[] = [
+  {
+    category: "Languages",
+    skills: ["Python", "Java", "C", "C++", "JavaScript", "SQL"],
+  },
+  {
+    category: "AI / ML",
+    skills: [
+      "Agentic AI",
+      "MLOps",
+      "LLM",
+      "Machine Learning",
+      "Artificial Intelligence",
+      "PyTorch",
+      "TensorFlow",
+      "scikit-learn",
+    ],
+  },
+  {
+    category: "Cloud & Infrastructure",
+    skills: ["AWS"],
+  },
+  {
+    category: "Web & Mobile",
+    skills: [
+      "React.js",
+      "Next.js",
+      "Node.js",
+      "REST API",
+      "HTML5",
+      "CSS",
+      "React Native",
+    ],
+  },
+  {
+    category: "Database",
+    skills: ["MongoDB", "SQL"],
+  },
+  {
+    category: "Tools & Concepts",
+    skills: [
+      "Git",
+      "Linux",
+      "Agile",
+      "OOP",
+      "DSA",
+      "Web3",
+      "Unreal Engine",
+      "Automation",
+    ],
+  },
+];
+
+// ─── Education ────────────────────────────────────────────────────────────────
+
+export const EDUCATION: EducationItem[] = [
+  {
+    degree: "Master of Science, Computer Science",
+    institution: "Arizona State University",
+    location: "Tempe, Arizona",
+    period: "December 2025",
+    gpa: "3.93 / 4.00",
+  },
+  {
+    degree: "Bachelor of Engineering, Electronics & Communication Engineering",
+    institution: "Ramaiah Institute of Technology",
+    location: "Bengaluru, India",
+    period: "May 2023",
+    gpa: "3.72 / 4.00",
+  },
+];
+
+// ─── Awards & Publications ────────────────────────────────────────────────────
+
+export const AWARDS: Award[] = [
+  {
+    title: '"Curiosity" CPAW Award',
+    organization: "EchoStar / Dish Network LLC",
+    date: "2025",
+    type: "award",
+  },
+  {
+    title: "Winner — Smart India Hackathon 2022",
+    organization: "Ministry of Education, Govt. of India · $1,200 Prize",
+    date: "August 2022",
+    type: "award",
+  },
+  {
+    title: "Runner-up — Sovereign Nature Winter Hackathon 2022",
+    organization: "Sovereign Nature Initiative (SNI) × De Ceuvel",
+    date: "February 2022",
+    type: "award",
+  },
+  {
+    title: "GARUDA: Third Eye for Detecting and Tracking Drones",
+    organization: "IEEE ICDDS 2023 — 2nd International Conference on Data, Decision and Systems",
+    date: "2023",
+    type: "publication",
+  },
+  {
+    title: "A Deep Learning Approach to Classify Drones and Birds",
+    organization: "IEEE 2nd Mysuru Sub Section International Conference",
+    date: "2022",
+    type: "publication",
+  },
+];
