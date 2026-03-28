@@ -1,6 +1,6 @@
 import type { Tile, SkillGroup, EducationItem, Award } from "./types";
 
-export const BASE_PATH = "/personal-website";
+export const BASE_PATH = "/personal-website-draft";
 
 // ─── SVG Icons ───────────────────────────────────────────────────────────────
 
