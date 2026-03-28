@@ -141,20 +141,19 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-        {/* Profile photo placeholder */}
+        {/* Profile photo */}
         <div
           className="mx-auto mb-8 w-28 h-28 rounded-full
                      border-2 border-blue-500/60
-                     bg-gradient-to-br from-blue-900/80 to-violet-900/80
-                     flex flex-col items-center justify-center
-                     shadow-[0_0_30px_rgba(59,130,246,0.25)]
+                     shadow-[0_0_30px_rgba(59,130,246,0.35)]
                      overflow-hidden"
         >
-          {/* Drop your photo here — replace this div with <img src="..." /> */}
-          <svg className="w-12 h-12 text-blue-400/60" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
-          </svg>
-          <span className="text-[10px] text-blue-400/50 font-mono mt-1">Photo</span>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={`${BASE_PATH}/profile.jpg`}
+            alt="Pavithraa Satchithanantham"
+            className="w-full h-full object-cover object-top"
+          />
         </div>
 
         {/* Name */}
