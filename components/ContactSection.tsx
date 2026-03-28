@@ -55,7 +55,7 @@ export default function ContactSection() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         {/* Left: links */}
         <div className="flex flex-col gap-4">
-          <p className="text-slate-400 text-sm leading-relaxed mb-2">
+          <p className="text-slate-600 text-sm leading-relaxed mb-2">
             I&apos;m always open to new opportunities, collaborations, and interesting conversations.
             Feel free to reach out.
           </p>
@@ -66,9 +66,9 @@ export default function ContactSection() {
               target={link.label !== "Email" ? "_blank" : undefined}
               rel="noopener noreferrer"
               className="flex items-center gap-3 glass rounded-lg px-4 py-3 card-glow
-                         text-slate-300 hover:text-blue-300 transition-all group"
+                         text-slate-700 hover:text-blue-600 transition-all group"
             >
-              <span className="text-blue-400 group-hover:text-blue-300 transition-colors shrink-0">
+              <span className="text-blue-600 group-hover:text-blue-500 transition-colors shrink-0">
                 {link.icon}
               </span>
               <div className="min-w-0">
@@ -82,41 +82,41 @@ export default function ContactSection() {
         {/* Right: form */}
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <div>
-            <label className="block text-xs font-mono text-slate-400 mb-1.5">Name</label>
+            <label className="block text-xs font-mono text-slate-600 mb-1.5">Name</label>
             <input
               type="text"
               required
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              className="w-full glass rounded-lg px-4 py-2.5 text-sm text-slate-200
-                         placeholder:text-slate-600 focus:outline-none
-                         focus:border-blue-500/60 border border-blue-900/30 transition-colors"
+              className="w-full glass rounded-lg px-4 py-2.5 text-sm text-slate-900
+                         placeholder:text-slate-400 focus:outline-none
+                         focus:border-blue-500 border border-blue-200 transition-colors"
               placeholder="Your name"
             />
           </div>
           <div>
-            <label className="block text-xs font-mono text-slate-400 mb-1.5">Email</label>
+            <label className="block text-xs font-mono text-slate-600 mb-1.5">Email</label>
             <input
               type="email"
               required
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              className="w-full glass rounded-lg px-4 py-2.5 text-sm text-slate-200
-                         placeholder:text-slate-600 focus:outline-none
-                         focus:border-blue-500/60 border border-blue-900/30 transition-colors"
+              className="w-full glass rounded-lg px-4 py-2.5 text-sm text-slate-900
+                         placeholder:text-slate-400 focus:outline-none
+                         focus:border-blue-500 border border-blue-200 transition-colors"
               placeholder="your@email.com"
             />
           </div>
           <div>
-            <label className="block text-xs font-mono text-slate-400 mb-1.5">Message</label>
+            <label className="block text-xs font-mono text-slate-600 mb-1.5">Message</label>
             <textarea
               required
               rows={4}
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-              className="w-full glass rounded-lg px-4 py-2.5 text-sm text-slate-200
-                         placeholder:text-slate-600 focus:outline-none
-                         focus:border-blue-500/60 border border-blue-900/30
+              className="w-full glass rounded-lg px-4 py-2.5 text-sm text-slate-900
+                         placeholder:text-slate-400 focus:outline-none
+                         focus:border-blue-500 border border-blue-200
                          transition-colors resize-none"
               placeholder="What's on your mind?"
             />
@@ -125,8 +125,8 @@ export default function ContactSection() {
             type="submit"
             className="w-full py-3 bg-blue-600 hover:bg-blue-500 text-white font-semibold
                        rounded-lg transition-all duration-200
-                       shadow-[0_0_16px_rgba(59,130,246,0.3)]
-                       hover:shadow-[0_0_24px_rgba(59,130,246,0.5)]"
+                       shadow-[0_0_16px_rgba(37,99,235,0.2)]
+                       hover:shadow-[0_0_24px_rgba(37,99,235,0.35)]"
           >
             Send Message →
           </button>

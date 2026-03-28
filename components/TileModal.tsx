@@ -37,7 +37,7 @@ export default function TileModal({ tile, onClose }: TileModalProps) {
         <motion.div
           key="modal-backdrop"
           className="fixed inset-0 z-[100] flex items-center justify-center p-4"
-          style={{ background: "rgba(4, 8, 20, 0.85)" }}
+          style={{ background: "rgba(15, 23, 42, 0.6)" }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -50,8 +50,8 @@ export default function TileModal({ tile, onClose }: TileModalProps) {
           <motion.div
             key="modal-card"
             className="relative glass rounded-2xl w-full max-w-2xl max-h-[90vh]
-                       overflow-y-auto border border-blue-500/30
-                       shadow-[0_0_60px_rgba(59,130,246,0.15)]"
+                       overflow-y-auto border border-blue-300/60
+                       shadow-[0_0_60px_rgba(37,99,235,0.12)]"
             initial={{ opacity: 0, scale: 0.88, y: 24 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.88, y: 24 }}
@@ -70,7 +70,7 @@ export default function TileModal({ tile, onClose }: TileModalProps) {
                 className="absolute inset-0 opacity-20"
                 style={{
                   backgroundImage:
-                    "linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px)",
+                    "linear-gradient(rgba(255,255,255,.10) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.10) 1px, transparent 1px)",
                   backgroundSize: "22px 22px",
                 }}
               />
@@ -88,7 +88,7 @@ export default function TileModal({ tile, onClose }: TileModalProps) {
               <button
                 onClick={onClose}
                 className="absolute top-4 right-4 w-8 h-8 rounded-full
-                           bg-black/40 hover:bg-black/60 text-white/70 hover:text-white
+                           bg-slate-200/80 hover:bg-slate-300/80 text-slate-700
                            flex items-center justify-center transition-all text-lg leading-none"
                 aria-label="Close"
               >
@@ -109,16 +109,16 @@ export default function TileModal({ tile, onClose }: TileModalProps) {
                 {tile.dateRange}
               </span>
 
-              <h2 className="text-xl md:text-2xl font-bold text-slate-100 mt-3 mb-1 leading-snug">
+              <h2 className="text-xl md:text-2xl font-bold text-slate-900 mt-3 mb-1 leading-snug">
                 {tile.title}
               </h2>
-              <p className="text-slate-300 mb-0.5">{tile.organization}</p>
+              <p className="text-slate-700 mb-0.5">{tile.organization}</p>
               <p className="text-sm text-slate-500 mb-6">{tile.location}</p>
 
               {/* Bullet points */}
               <ul className="space-y-4 mb-7">
                 {tile.bullets.map((bullet, i) => (
-                  <li key={i} className="flex gap-3 text-sm text-slate-300 leading-relaxed">
+                  <li key={i} className="flex gap-3 text-sm text-slate-700 leading-relaxed">
                     <span
                       className="mt-0.5 shrink-0 font-bold"
                       style={{ color: tile.theme.accentColor }}
@@ -131,11 +131,11 @@ export default function TileModal({ tile, onClose }: TileModalProps) {
               </ul>
 
               {/* All tags */}
-              <div className="flex flex-wrap gap-2 pt-4 border-t border-blue-900/30">
+              <div className="flex flex-wrap gap-2 pt-4 border-t border-blue-200/60">
                 {tile.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="text-xs px-3 py-1 rounded-full border bg-slate-800/60 text-slate-300 border-slate-700/50"
+                    className="text-xs px-3 py-1 rounded-full border bg-blue-50 text-blue-700 border-blue-200"
                   >
                     {tag}
                   </span>

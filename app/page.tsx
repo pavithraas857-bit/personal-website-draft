@@ -16,45 +16,45 @@ export default function Home() {
 
         {/* Divider */}
         <div className="max-w-6xl mx-auto px-4">
-          <div className="h-px bg-gradient-to-r from-transparent via-blue-900/40 to-transparent" />
+          <div className="h-px bg-gradient-to-r from-transparent via-blue-300/60 to-transparent" />
         </div>
 
         <ExperienceSection />
 
         <div className="max-w-6xl mx-auto px-4">
-          <div className="h-px bg-gradient-to-r from-transparent via-blue-900/40 to-transparent" />
+          <div className="h-px bg-gradient-to-r from-transparent via-blue-300/60 to-transparent" />
         </div>
 
         <ProjectsSection />
 
         <div className="max-w-6xl mx-auto px-4">
-          <div className="h-px bg-gradient-to-r from-transparent via-blue-900/40 to-transparent" />
+          <div className="h-px bg-gradient-to-r from-transparent via-blue-300/60 to-transparent" />
         </div>
 
         <SkillsSection />
 
         <div className="max-w-6xl mx-auto px-4">
-          <div className="h-px bg-gradient-to-r from-transparent via-blue-900/40 to-transparent" />
+          <div className="h-px bg-gradient-to-r from-transparent via-blue-300/60 to-transparent" />
         </div>
 
         <EducationSection />
 
         <div className="max-w-6xl mx-auto px-4">
-          <div className="h-px bg-gradient-to-r from-transparent via-blue-900/40 to-transparent" />
+          <div className="h-px bg-gradient-to-r from-transparent via-blue-300/60 to-transparent" />
         </div>
 
         <AwardsSection />
 
         <div className="max-w-6xl mx-auto px-4">
-          <div className="h-px bg-gradient-to-r from-transparent via-blue-900/40 to-transparent" />
+          <div className="h-px bg-gradient-to-r from-transparent via-blue-300/60 to-transparent" />
         </div>
 
         <ContactSection />
       </main>
 
-      <footer className="text-center py-10 text-slate-600 text-xs font-mono border-t border-blue-900/20 mt-8">
+      <footer className="text-center py-10 text-slate-400 text-xs font-mono border-t border-blue-200/60 mt-8">
         <span>© 2025 Pavithraa Satchithanantham</span>
-        <span className="mx-2 text-blue-900">·</span>
+        <span className="mx-2 text-blue-300">·</span>
         <span>Built with Next.js + Tailwind CSS</span>
       </footer>
     </>

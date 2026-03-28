@@ -33,7 +33,7 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-navy-900/85 backdrop-blur-md border-b border-blue-900/30 shadow-lg shadow-blue-950/20"
+          ? "bg-white/90 backdrop-blur-md border-b border-blue-200/60 shadow-lg shadow-blue-100/40"
           : "bg-transparent"
       }`}
     >
@@ -41,9 +41,9 @@ export default function Navbar() {
         {/* Logo */}
         <a
           href={`${BASE_PATH}/`}
-          className="font-mono text-blue-400 font-bold text-lg tracking-wider hover:text-blue-300 transition-colors"
+          className="font-mono text-blue-600 font-bold text-lg tracking-wider hover:text-blue-500 transition-colors"
         >
-          PS<span className="text-violet-400">.</span>
+          PS<span className="text-violet-600">.</span>
         </a>
 
         {/* Desktop links */}
@@ -53,7 +53,7 @@ export default function Navbar() {
               <a
                 href={link.href}
                 onClick={(e) => handleClick(e, link.href)}
-                className="text-sm text-slate-300 hover:text-blue-400 transition-colors font-medium"
+                className="text-sm text-slate-700 hover:text-blue-600 transition-colors font-medium"
               >
                 {link.label}
               </a>
@@ -63,8 +63,8 @@ export default function Navbar() {
             <a
               href={`${BASE_PATH}/resume.pdf`}
               download
-              className="text-sm px-4 py-1.5 border border-blue-500/50 text-blue-300
-                         hover:bg-blue-600/20 hover:border-blue-400 rounded-md
+              className="text-sm px-4 py-1.5 border border-blue-400 text-blue-700
+                         hover:bg-blue-50 hover:border-blue-500 rounded-md
                          transition-all font-medium"
             >
               Resume
@@ -74,7 +74,7 @@ export default function Navbar() {
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden text-slate-300 hover:text-blue-400 transition-colors"
+          className="md:hidden text-slate-700 hover:text-blue-600 transition-colors"
           onClick={() => setMenuOpen((o) => !o)}
           aria-label="Toggle menu"
         >
@@ -90,14 +90,14 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden glass border-t border-blue-900/30">
+        <div className="md:hidden glass border-t border-blue-200/60">
           <ul className="flex flex-col px-4 py-4 gap-3">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
                   onClick={(e) => handleClick(e, link.href)}
-                  className="block text-slate-300 hover:text-blue-400 transition-colors py-1 font-medium"
+                  className="block text-slate-700 hover:text-blue-600 transition-colors py-1 font-medium"
                 >
                   {link.label}
                 </a>
@@ -107,7 +107,7 @@ export default function Navbar() {
               <a
                 href={`${BASE_PATH}/resume.pdf`}
                 download
-                className="block text-blue-300 hover:text-blue-200 py-1 font-medium"
+                className="block text-blue-700 hover:text-blue-500 py-1 font-medium"
               >
                 Download Resume
               </a>

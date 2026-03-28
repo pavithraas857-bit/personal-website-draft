@@ -36,7 +36,7 @@ export default function Hero() {
     resize();
     window.addEventListener("resize", resize, { passive: true });
 
-    const COLORS = ["#3b82f6", "#7c3aed", "#60a5fa", "#a78bfa"];
+    const COLORS = ["#2563eb", "#7c3aed", "#60a5fa", "#a78bfa"];
     const particles = Array.from({ length: 100 }, () => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
@@ -61,7 +61,7 @@ export default function Hero() {
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
         ctx.fillStyle = p.color;
-        ctx.globalAlpha = 0.75;
+        ctx.globalAlpha = 0.6;
         ctx.fill();
         ctx.globalAlpha = 1;
 
@@ -70,7 +70,7 @@ export default function Hero() {
           const dist = Math.hypot(p.x - q.x, p.y - q.y);
           if (dist < 120) {
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(96, 165, 250, ${(1 - dist / 120) * 0.4})`;
+            ctx.strokeStyle = `rgba(37, 99, 235, ${(1 - dist / 120) * 0.25})`;
             ctx.lineWidth = 0.6;
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(q.x, q.y);
@@ -141,13 +141,13 @@ export default function Hero() {
         style={{ display: "block" }}
       />
 
-      {/* Radial gradient overlays */}
-      <div className="absolute inset-0 bg-gradient-to-b from-navy-900/30 via-transparent to-[#0a0f1e]" />
+      {/* Subtle light overlays */}
+      <div className="absolute inset-0 bg-gradient-to-b from-blue-50/40 via-transparent to-[#f8faff]" />
       <div
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse 80% 60% at 50% 40%, rgba(59,130,246,0.07) 0%, transparent 70%)",
+            "radial-gradient(ellipse 80% 60% at 50% 40%, rgba(37,99,235,0.05) 0%, transparent 70%)",
         }}
       />
 
@@ -159,20 +159,20 @@ export default function Hero() {
           <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left">
             {/* Name */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 leading-tight tracking-tight">
-              <span className="text-slate-100">Pavithraa </span>
+              <span className="text-slate-900">Pavithraa </span>
               <span className="gradient-text">Satchithanantham</span>
             </h1>
 
             {/* Typewriter */}
             <div className="h-10 mb-6 flex items-center justify-center md:justify-start">
-              <span className="font-mono text-lg sm:text-xl text-blue-300">
+              <span className="font-mono text-lg sm:text-xl text-blue-600">
                 {displayText}
-                <span className="inline-block w-0.5 h-5 bg-blue-400 ml-0.5 align-middle animate-blink" />
+                <span className="inline-block w-0.5 h-5 bg-blue-600 ml-0.5 align-middle animate-blink" />
               </span>
             </div>
 
             {/* Subtitle */}
-            <p className="text-slate-400 text-base sm:text-lg mb-10 max-w-xl leading-relaxed">
+            <p className="text-slate-600 text-base sm:text-lg mb-10 max-w-xl leading-relaxed">
               MS Computer Science · Arizona State University ·
               Building systems at the intersection of intelligence and engineering.
             </p>
@@ -183,8 +183,8 @@ export default function Hero() {
                 onClick={() => scrollTo("#experience")}
                 className="px-7 py-3 bg-blue-600 hover:bg-blue-500 text-white
                            rounded-lg font-semibold transition-all duration-200
-                           shadow-[0_0_20px_rgba(59,130,246,0.35)]
-                           hover:shadow-[0_0_32px_rgba(59,130,246,0.55)]
+                           shadow-[0_0_20px_rgba(37,99,235,0.25)]
+                           hover:shadow-[0_0_32px_rgba(37,99,235,0.4)]
                            w-full sm:w-auto"
               >
                 Explore My Work
@@ -192,10 +192,10 @@ export default function Hero() {
               <a
                 href={`${BASE_PATH}/resume.pdf`}
                 download
-                className="px-7 py-3 glass border border-blue-500/40
-                           text-blue-300 hover:text-white hover:border-blue-400
+                className="px-7 py-3 bg-white border border-blue-300
+                           text-blue-700 hover:bg-blue-50 hover:border-blue-400
                            rounded-lg font-semibold transition-all duration-200
-                           hover:bg-blue-600/20 w-full sm:w-auto text-center"
+                           w-full sm:w-auto text-center"
               >
                 Download Resume ↓
               </a>
@@ -218,7 +218,7 @@ export default function Hero() {
             >
               {/* Gradient border wrapper */}
               <div
-                className="p-[2px] rounded-2xl shadow-[0_0_40px_rgba(59,130,246,0.25)]"
+                className="p-[2px] rounded-2xl shadow-[0_0_40px_rgba(37,99,235,0.2)]"
                 style={{
                   background: "linear-gradient(135deg, #3b82f6, #7c3aed)",
                 }}
@@ -236,7 +236,7 @@ export default function Hero() {
                     className="absolute bottom-0 left-0 right-0 h-16"
                     style={{
                       background:
-                        "linear-gradient(to top, rgba(10,15,30,0.6) 0%, transparent 100%)",
+                        "linear-gradient(to top, rgba(248,250,255,0.5) 0%, transparent 100%)",
                     }}
                   />
                 </div>
@@ -248,7 +248,7 @@ export default function Hero() {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-slate-500 animate-bounce">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-slate-400 animate-bounce">
         <span className="text-xs font-mono tracking-widest">SCROLL</span>
         <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" d="m19 9-7 7-7-7" />

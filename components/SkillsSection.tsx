@@ -8,7 +8,7 @@ export default function SkillsSection() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {SKILLS.map((group) => (
           <div key={group.category} className="glass rounded-xl p-5 card-glow">
-            <h3 className="font-mono text-xs uppercase tracking-widest text-blue-400 mb-4">
+            <h3 className="font-mono text-xs uppercase tracking-widest text-blue-700 mb-4">
               {group.category}
             </h3>
             <div className="flex flex-wrap gap-2">
@@ -16,9 +16,9 @@ export default function SkillsSection() {
                 <span
                   key={skill}
                   className="text-sm px-3 py-1 rounded-full
-                             bg-slate-800/60 text-slate-300
-                             border border-slate-700/50
-                             hover:border-blue-500/50 hover:text-blue-300
+                             bg-blue-50 text-slate-700
+                             border border-blue-200
+                             hover:border-blue-500 hover:text-blue-700
                              transition-colors cursor-default"
                 >
                   {skill}
