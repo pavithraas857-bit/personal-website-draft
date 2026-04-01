@@ -64,16 +64,16 @@ export default function Hero() {
       ref={sectionRef}
       className="relative min-h-screen flex flex-col md:flex-row overflow-hidden bg-white"
     >
-      {/* ── Left: Photo panel ── */}
+      {/* ── Left: Photo panel — capped at exactly viewport height ── */}
       <div
-        className="relative w-full md:w-2/5 min-h-[52vh] md:min-h-screen shrink-0 overflow-hidden"
+        className="relative w-full md:w-2/5 h-[52vh] md:h-screen shrink-0 overflow-hidden"
         style={{ opacity: heroOpacity }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={`${BASE_PATH}/pavi_selfie_1.jpeg`}
           alt="Pavithraa Satchithanantham"
-          className="w-full h-full object-cover object-top"
+          className="w-full h-full object-contain object-top"
         />
         {/* Soft right-edge fade into white */}
         <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-r from-transparent to-white hidden md:block" />
