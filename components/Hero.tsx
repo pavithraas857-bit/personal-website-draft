@@ -62,31 +62,29 @@ export default function Hero() {
     <section
       id="home"
       ref={sectionRef}
-      className="relative min-h-screen overflow-hidden bg-black"
+      className="relative min-h-screen flex flex-col md:flex-row overflow-hidden bg-white"
     >
-      {/* ── Full-screen landscape photo background ── */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={`${BASE_PATH}/hero-photo.jpg`}
-        alt=""
-        aria-hidden="true"
-        className="absolute inset-0 w-full h-full object-cover object-center"
+      {/* ── Left: Photo panel ── */}
+      <div
+        className="relative w-full md:w-2/5 min-h-[52vh] md:min-h-screen shrink-0 overflow-hidden"
         style={{ opacity: heroOpacity }}
-      />
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={`${BASE_PATH}/pavi_selfie_1.jpeg`}
+          alt="Pavithraa Satchithanantham"
+          className="w-full h-full object-cover object-top"
+        />
+        {/* Soft right-edge fade into white */}
+        <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-r from-transparent to-white hidden md:block" />
+        {/* Soft bottom-edge fade into white on mobile */}
+        <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-b from-transparent to-white md:hidden" />
+      </div>
 
-      {/* ── Cinematic gradient overlay ── bottom-heavy for text legibility */}
+      {/* ── Right: Content panel ── */}
       <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.05) 30%, rgba(0,0,0,0.55) 70%, rgba(0,0,0,0.80) 100%)",
-          opacity: heroOpacity,
-        }}
-      />
-
-      {/* ── Text content — lower third ── */}
-      <div
-        className="relative z-10 flex flex-col items-center justify-end min-h-screen pb-28 px-6 text-center text-white"
+        className="relative z-10 flex flex-col items-center justify-center flex-1
+                   px-8 py-16 md:py-0 text-center"
         style={{ opacity: heroOpacity }}
       >
         {/* Name */}
@@ -96,7 +94,7 @@ export default function Hero() {
         >
           <span
             style={{
-              background: "linear-gradient(135deg, #ffffff 0%, #bfdbfe 45%, #c4b5fd 100%)",
+              background: "linear-gradient(135deg, #1d4ed8 0%, #7c3aed 50%, #db2777 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
@@ -105,7 +103,7 @@ export default function Hero() {
             Pavithraa
           </span>
           <br />
-          <span className="text-white/90 font-light tracking-widest text-3xl sm:text-4xl md:text-5xl uppercase">
+          <span className="text-slate-700 font-light tracking-widest text-3xl sm:text-4xl md:text-5xl uppercase">
             Satchithanantham
           </span>
         </h1>
@@ -115,9 +113,9 @@ export default function Hero() {
           className="mb-10 h-9 flex items-center"
           style={{ animation: "fadeInUp 1.1s ease 0.9s both" }}
         >
-          <span className="font-mono text-lg sm:text-xl text-blue-200/90">
+          <span className="font-mono text-lg sm:text-xl text-blue-600">
             {displayText}
-            <span className="inline-block w-0.5 h-5 bg-blue-300 ml-0.5 align-middle animate-blink" />
+            <span className="inline-block w-0.5 h-5 bg-blue-500 ml-0.5 align-middle animate-blink" />
           </span>
         </div>
 
@@ -128,20 +126,20 @@ export default function Hero() {
         >
           <button
             onClick={() => scrollTo("#experience")}
-            className="px-8 py-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm
-                       text-white border border-white/30 hover:border-white/60
+            className="px-8 py-3 bg-white hover:bg-slate-50
+                       text-slate-700 border border-slate-300 hover:border-slate-400
                        rounded-full font-semibold transition-all duration-300
-                       shadow-lg w-full sm:w-auto"
+                       shadow-sm w-full sm:w-auto"
           >
             Explore My Work
           </button>
           <a
             href={`${BASE_PATH}/resume.pdf`}
             download
-            className="px-8 py-3 bg-blue-600/70 hover:bg-blue-600 backdrop-blur-sm
-                       text-white border border-blue-400/50 hover:border-blue-300
+            className="px-8 py-3 bg-blue-600 hover:bg-blue-700
+                       text-white border border-blue-600 hover:border-blue-700
                        rounded-full font-semibold transition-all duration-300
-                       shadow-lg w-full sm:w-auto text-center"
+                       shadow-sm w-full sm:w-auto text-center"
           >
             Download Resume ↓
           </a>
@@ -150,7 +148,7 @@ export default function Hero() {
 
       {/* ── Scroll indicator ── */}
       <div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-white/40 animate-bounce"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-slate-400 animate-bounce"
         style={{ opacity: heroOpacity }}
       >
         <span className="text-xs font-mono tracking-widest">SCROLL</span>
