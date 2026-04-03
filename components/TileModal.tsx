@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import type { Tile } from "@/lib/types";
 
@@ -10,6 +11,9 @@ interface TileModalProps {
 }
 
 export default function TileModal({ tile, onClose }: TileModalProps) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => { setMounted(true); }, []);
+
   // Close on Escape
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
@@ -31,7 +35,9 @@ export default function TileModal({ tile, onClose }: TileModalProps) {
     };
   }, [tile]);
 
-  return (
+  if (!mounted) return null;
+
+  return createPortal(
     <AnimatePresence>
       {tile && (
         <motion.div
@@ -146,6 +152,7 @@ export default function TileModal({ tile, onClose }: TileModalProps) {
           </motion.div>
         </motion.div>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   );
 }
