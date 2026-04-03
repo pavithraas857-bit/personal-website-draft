@@ -197,7 +197,39 @@ export const EXPERIENCES: Tile[] = [
 
 // ─── Projects ─────────────────────────────────────────────────────────────────
 
+const SECURITY_SVG = `
+<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+  <!-- Shield -->
+  <path d="M24 4 L40 10 L40 24 Q40 36 24 44 Q8 36 8 24 L8 10 Z"/>
+  <!-- Eye inside shield -->
+  <ellipse cx="24" cy="24" rx="7" ry="5"/>
+  <circle cx="24" cy="24" r="2.5" fill="currentColor" stroke="none"/>
+  <!-- Scan lines -->
+  <line x1="14" y1="17" x2="34" y2="17" opacity="0.4"/>
+  <line x1="14" y1="31" x2="34" y2="31" opacity="0.4"/>
+</svg>`;
+
 export const PROJECTS: Tile[] = [
+  {
+    id: "perimeter-intrusion-2023",
+    type: "project",
+    title: "Perimeter Intrusion Detection",
+    organization: "A-1 Fence Products Company Pvt. Ltd.",
+    location: "Bengaluru, India",
+    dateRange: "March 2022 – April 2023",
+    theme: {
+      gradientFrom: "#fef2f2",
+      gradientTo: "#fff7ed",
+      accentColor: "#ef4444",
+      svgIcon: SECURITY_SVG,
+    },
+    bullets: [
+      "Led a team of 3 in designing and developing a video-based intrusion detection framework to identify unauthorized physical access with a classification accuracy of 94.74% through extensive model tuning and evaluation.",
+      "Proposed and built two novel neural network models: (1) CNN + LSTM to extract spatial features from video frames and model temporal dependencies; (2) Long Term Recurrent Convolutional Network (LRCN) combining convolutional feature extraction with recurrent temporal learning for sequence classification.",
+      "Applied optimization techniques including loss function tuning, learning rate scheduling, and regularization; deployed the trained model on NVIDIA Jetson Nano, optimizing inference for edge computing.",
+    ],
+    tags: ["CNN", "LSTM", "LRCN", "PyTorch", "Computer Vision", "Edge AI", "Jetson Nano"],
+  },
   {
     id: "garuda-2022",
     type: "project",
