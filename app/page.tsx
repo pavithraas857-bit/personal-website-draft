@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import AboutSection from "@/components/AboutSection";
 import ExperienceSection from "@/components/ExperienceSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import SkillsSection from "@/components/SkillsSection";
@@ -15,6 +16,12 @@ export default function Home() {
         <Hero />
 
         {/* Divider */}
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="h-px bg-gradient-to-r from-transparent via-blue-300/60 to-transparent" />
+        </div>
+
+        <AboutSection />
+
         <div className="max-w-6xl mx-auto px-4">
           <div className="h-px bg-gradient-to-r from-transparent via-blue-300/60 to-transparent" />
         </div>
