@@ -267,8 +267,12 @@ export const SKILLS: SkillGroup[] = [
       "Agentic AI",
       "MLOps",
       "LLM",
+      "RAG",
       "Machine Learning",
       "Artificial Intelligence",
+      "CNN",
+      "RNN",
+      "LSTM",
       "PyTorch",
       "TensorFlow",
       "scikit-learn",
@@ -292,7 +296,7 @@ export const SKILLS: SkillGroup[] = [
   },
   {
     category: "Database",
-    skills: ["MongoDB", "SQL"],
+    skills: ["MongoDB", "MySQL"],
   },
   {
     category: "Tools & Concepts",
@@ -304,7 +308,6 @@ export const SKILLS: SkillGroup[] = [
       "DSA",
       "Web3",
       "Unreal Engine",
-      "Automation",
     ],
   },
 ];
