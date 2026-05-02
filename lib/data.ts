@@ -231,8 +231,8 @@ export const PROJECTS: Tile[] = [
   {
     id: "garuda-2022",
     type: "project",
-    title: "GARUDA: End-to-End Drone Detection & Management System",
-    organization: "Ramaiah Institute of Technology",
+    title: "GARUDA: Drone Detection and Tracking System",
+    organization: "MSRIT in collaboration with DRDO",
     location: "Bengaluru, India",
     dateRange: "October 2021 – June 2022",
     theme: {
@@ -242,13 +242,11 @@ export const PROJECTS: Tile[] = [
       svgIcon: DRONE_SVG,
     },
     bullets: [
-      "Winner at the (National) Smart India Hackathon 2022, Ministry of Education, Govt. of India — won a cash prize of $1,200.",
-      'Published a peer-reviewed paper entitled "GARUDA: Third Eye for Detecting and Tracking Drones" at the 2023 IEEE 2nd International Conference on Data, Decision and Systems (ICDDS).',
-      'Published a peer-reviewed paper entitled "A Deep Learning Approach to Classify Drones and Birds" at the 2022 IEEE 2nd Mysuru Sub Section International Conference.',
-      "Employed a robust computer vision model capable of identifying small drones from long distances and low-resolution CCTV footage with an impressive precision of 90.1% and a recall of 92.9%.",
-      "Designed to track the status of drones — inferring if a drone is approaching, receding, or moving laterally — draw bounding boxes around detected drones, update their status in a cloud database, and trigger real-time alerts to personnel via mobile devices, intended for deployment in defense establishments such as DRDO.",
+      "Boosted real-time small drone detection on sub-20px targets by +5pp mAP@0.5 on a custom 2k-image drone vs. bird dataset by adding a P2/stride-4 detection head to YOLOv5l, increasing mAP@0.5 from 87.3% to 89.3%.",
+      "Recomputed dataset-specific anchors via k-means + genetic algorithm refinement, further increasing mAP@0.5 from 89.3% to 94.2%.",
+      "Engineered a monocular threat-assessment heuristic module during a 36-hour hackathon, using bounding box area as a proxy for range estimation by computing a smoothed dA/dt signal to classify drone radial motion into 3 states (approach, recede, hover/lateral) with 90% classification accuracy on test sequences.",
     ],
-    tags: ["YOLOv5", "Computer Vision", "PyTorch", "OpenCV", "Python", "Cloud DB"],
+    tags: ["YOLOv5", "Computer Vision", "PyTorch", "OpenCV", "Python", "DRDO"],
   },
 ];
 
