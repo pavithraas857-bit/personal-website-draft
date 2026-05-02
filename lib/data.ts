@@ -320,7 +320,7 @@ export const EDUCATION: EducationItem[] = [
   },
   {
     degree: "Bachelor of Engineering, Electronics & Communication Engineering",
-    institution: "Ramaiah Institute of Technology",
+    institution: "M.S. Ramaiah Institute of Technology",
     location: "Bengaluru, India",
     period: "May 2023",
     gpa: "3.72 / 4.00",
