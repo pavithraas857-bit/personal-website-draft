@@ -353,6 +353,8 @@ export const AWARDS: Award[] = [
     organization: "EchoStar Corporation (Dish Network)",
     date: "2025",
     type: "award",
+    description:
+      "Recognized as one of the top performing interns, and awarded with the 'Curiosity' award for demonstrating innovation, ownership and excellence during the internship.",
   },
   {
     title: "New American University Scholarship Awardee",
