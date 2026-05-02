@@ -116,8 +116,8 @@ export const EXPERIENCES: Tile[] = [
   {
     id: "echostar-2025",
     type: "experience",
-    title: "Software Engineering Intern",
-    organization: "EchoStar | Dish Network LLC",
+    title: "AI Engineering Intern",
+    organization: "EchoStar Corporation (Dish Network)",
     location: "Denver, Colorado",
     dateRange: "June 2025 – August 2025",
     theme: {
@@ -127,12 +127,12 @@ export const EXPERIENCES: Tile[] = [
       svgIcon: NEURAL_NET_SVG,
     },
     bullets: [
-      "Winner of the prestigious 'Curiosity' CPAW Award for demonstrating exceptional curiosity and initiative throughout the internship.",
-      "Pioneered 'JARVIS', an Agentic AI based Retrieval Augmented Generation (RAG) system built on AWS, achieving a stellar 95% quality index score — enabling the DISH IT Video Services Team to query vast technical documentation and receive instant, accurate answers based on explicit and implicit knowledge of system architectures, service dependencies, and workflows.",
-      "Enhanced functionalities by designing novel, role-aware and adaptive Developer and Executive 'Core' and 'Nexus' personas to support diverse user needs across technical and leadership teams.",
-      "Increased team operational efficiency by up to 75% in targeted workflows by reducing SME dependency and enabling rapid issue resolution, allowing engineers to shift focus from time-consuming information retrieval to high-value innovation.",
+      "Architected and built end-to-end proprietary advanced agentic AI Retrieval Augmented Generation (RAG) system that boosts team productivity by roughly 45% and increases document retrieval efficiency from 23% to 78%.",
+      "Designed serverless Lambda orchestration architecture powered by Claude Sonnet 3.7 (custom metadata filtering, hybrid BM25 + text-embedding Amazon TTE over OSS vectorDB) serving 50+ daily engineers.",
+      "Improved top-5 retrieval MRR 47% from initial 8% and cut p95 latency from 8s to 920ms via re-ranking & hierarchical chunking.",
+      "Innovated adaptive, role-aware 'Core' (Developer) and 'Nexus' (Executive) personas using system prompting + inference tuning (temperature, top_p, top_k, max_tokens) to tailor grounded responses.",
     ],
-    tags: ["Agentic AI", "AWS", "RAG", "LLM", "Python", "MLOps"],
+    tags: ["Agentic AI", "AWS", "RAG", "LLM", "Claude Sonnet 3.7", "Python"],
   },
   {
     id: "huelearn-sda-2023",
@@ -176,7 +176,7 @@ export const EXPERIENCES: Tile[] = [
   {
     id: "curl-2022",
     type: "experience",
-    title: "Software Engineering Intern",
+    title: "AI Engineer",
     organization: "Curl",
     location: "Bengaluru, India",
     dateRange: "October 2021 – February 2022",
@@ -187,11 +187,10 @@ export const EXPERIENCES: Tile[] = [
       svgIcon: BLOCKCHAIN_SVG,
     },
     bullets: [
-      "Runner up at the (International) Sovereign Nature Winter Hackathon Challenge 2022, Sovereign Nature Initiative (SNI) x De Ceuvel Hackathon — won a cash prize and tokens.",
-      "Instrumental in developing Sattva, a framework to enable an ecosystem to be self-sovereign — built using Python Django along with an advanced Style GAN Model and an Object Detection Algorithm to convert images created or owned by the park into unique and attractive artworks automatically.",
-      "Minted artworks as NFTs and sold on marketplaces to generate revenue for the self-sustenance of the park.",
+      "Architected an end-to-end autonomous art pipeline converting park camera images into stylized artworks via a StyleGAN2-ADA + AdaIN model, minted them as NFTs and sold on OpenSea.",
+      "Fine-tuned StyleGAN2-ADA from an FFHQ pretrained checkpoint on a curated 4,200-image nature corpus using a single Colab Pro A100 (40 GB), reaching FID ~22 in ~15 GPU hours.",
     ],
-    tags: ["Python Django", "StyleGAN", "NFT", "Web3", "Object Detection", "AI Art"],
+    tags: ["StyleGAN2-ADA", "AdaIN", "NFT", "Web3", "Generative AI", "AI Art"],
   },
 ];
 
@@ -336,7 +335,7 @@ export const EDUCATION: EducationItem[] = [
 export const AWARDS: Award[] = [
   {
     title: '"Curiosity" CPAW Award',
-    organization: "EchoStar / Dish Network LLC",
+    organization: "EchoStar Corporation (Dish Network)",
     date: "2025",
     type: "award",
   },
