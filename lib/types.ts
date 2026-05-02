@@ -28,6 +28,7 @@ export interface EducationItem {
   location: string;
   period: string;
   gpa: string;
+  note?: string;
 }
 
 export interface Award {
