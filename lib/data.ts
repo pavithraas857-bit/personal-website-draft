@@ -232,7 +232,7 @@ export const PROJECTS: Tile[] = [
     id: "garuda-2022",
     type: "project",
     title: "GARUDA: Drone Detection and Tracking System",
-    organization: "MSRIT in collaboration with DRDO",
+    organization: "M.S. Ramaiah Institute of Technology in collaboration with Defence Research and Development Organisation (DRDO)",
     location: "Bengaluru, India",
     dateRange: "October 2021 – June 2022",
     theme: {
