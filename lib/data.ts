@@ -116,7 +116,7 @@ export const EXPERIENCES: Tile[] = [
   {
     id: "echostar-2025",
     type: "experience",
-    title: "AI Engineering Intern",
+    title: "AI Engineer",
     organization: "EchoStar Corporation (Dish Network)",
     location: "Denver, Colorado",
     dateRange: "June 2025 – August 2025",
@@ -137,7 +137,7 @@ export const EXPERIENCES: Tile[] = [
   {
     id: "huelearn-sda-2023",
     type: "experience",
-    title: "Software Development Associate",
+    title: "Software Engineer",
     organization: "Hue Learn",
     location: "Bengaluru, India",
     dateRange: "June 2023 – November 2023",
@@ -157,7 +157,7 @@ export const EXPERIENCES: Tile[] = [
   {
     id: "huelearn-sdi-2023",
     type: "experience",
-    title: "Software Development Intern",
+    title: "Software Engineering Intern",
     organization: "Hue Learn",
     location: "Bengaluru, India",
     dateRange: "April 2023 – May 2023",
