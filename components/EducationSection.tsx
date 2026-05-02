@@ -24,6 +24,9 @@ export default function EducationSection() {
                 {edu.degree}
               </h3>
               <p className="text-slate-700 font-medium">{edu.institution}</p>
+              {edu.note && (
+                <p className="text-blue-600 text-sm font-medium italic">{edu.note}</p>
+              )}
               <p className="text-slate-500 text-sm">{edu.location}</p>
             </div>
 

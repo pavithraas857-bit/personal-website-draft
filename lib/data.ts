@@ -335,6 +335,7 @@ export const EDUCATION: EducationItem[] = [
     location: "Tempe, Arizona",
     period: "December 2025",
     gpa: "3.93 / 4.00",
+    note: "New American University Scholar",
   },
   {
     degree: "Bachelor of Engineering, Electronics & Communication Engineering",
